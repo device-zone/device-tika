@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -e
+umask 0002
+
+if [ "$1" == "--" ]; then
+
+  /usr/libexec/device-set --mark name --hostname name "$@"
+
+#  /usr/bin/sudo /usr/bin/systemctl try-reload-or-restart tika2-autodiscovery.service && /usr/bin/sudo /usr/bin/systemctl try-reload-or-restart httpd-autodiscovery.service
+
+  /usr/bin/sudo /usr/bin/systemctl try-reload-or-restart tika2-autodiscovery.service
+
+elif [ "$1" == "-c" ]; then
+
+  /usr/libexec/device-set --mark name --hostname name "$@"
+
+fi
+

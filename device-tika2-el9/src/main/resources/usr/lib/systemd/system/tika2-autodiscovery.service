@@ -1,0 +1,16 @@
+# systemd service for managing all tika autoconfiguration.
+
+[Unit]
+Description=Tika2 Configuration Autodiscovery
+#Requires=tika.service
+#Before=tika.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /usr/libexec/device-autodiscovery/tika2
+ExecReload=/bin/bash /usr/libexec/device-autodiscovery/tika2
+RemainAfterExit=on
+
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set -e
+umask 0002
+
+#OPTIONS="--set name --hostname name --polar disabled --relation-base /etc/device/services/www/virtualhost --relation-name name --relation-suffix .txt --relation virtualhost --relation-base /etc/device/services/www/auth --relation-name name --relation-suffix .txt --relation auth --required --url-path-abempty path --unprivileged-port port"
+
+OPTIONS="--set name --hostname name --polar disabled --required --unprivileged-port port"
+
+if [ "$1" == "--" ]; then
+
+  /usr/libexec/device-set ${OPTIONS} "$@"
+
+#  /usr/bin/sudo /usr/bin/systemctl try-reload-or-restart tika2-autodiscovery.service && /usr/bin/sudo /usr/bin/systemctl try-reload-or-restart httpd-autodiscovery.service
+
+  /usr/bin/sudo /usr/bin/systemctl try-reload-or-restart tika2-autodiscovery.service
+
+elif [ "$1" == "-c" ]; then
+
+  /usr/libexec/device-set ${OPTIONS} "$@"
+
+fi
+
