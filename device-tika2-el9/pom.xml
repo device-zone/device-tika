@@ -200,6 +200,9 @@
                 <source>
                   <location>target/classes/usr/libexec/device/services/app/tika2/set</location>
                 </source>
+                <source>
+                  <location>target/classes/usr/libexec/device/services/app/tika2/show</location>
+                </source>
               </sources>
             </mapping>
           </mappings>
